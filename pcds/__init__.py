@@ -84,5 +84,5 @@ class Catcher(object):
         try:
             set_trace()
             return self.app(environ, start_response)
-        except HTTPNotFound, e:
+        except HTTPNotFound as e:
             set_trace()
