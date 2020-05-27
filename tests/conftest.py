@@ -4,16 +4,12 @@ from pkg_resources import resource_filename
 import pytest
 import pycds
 from pycds import Network, Contact, Station, History, Variable
-import modelmeta
 import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.schema import CreateSchema
 import testing.postgresql
 
-import pdp_util
-from pdp_util.ensemble_members import EnsembleMemberLister
-from pdp_util.raster import RasterMetadata
 
 @pytest.fixture(scope='session')
 def engine():
@@ -60,20 +56,3 @@ def test_session(empty_session):
 @pytest.fixture(scope="function")
 def conn_params(test_session):
     yield test_session.get_bind().url
-
-
-@pytest.fixture(scope="function")
-def ensemble_member_lister():
-    return EnsembleMemberLister(modelmeta.test_dsn)
-
-@pytest.fixture(scope="function")
-def raster_metadata():
-    return RasterMetadata(modelmeta.test_dsn)
-
-@pytest.fixture(scope="function")
-def mm_session():
-    return modelmeta.test_session()
-
-@pytest.fixture(scope="function")
-def mm_dsn():
-    return modelmeta.test_dsn
