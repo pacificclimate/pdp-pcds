@@ -12,15 +12,15 @@ import numpy as np
 from sqlalchemy import or_, not_
 from sqlalchemy.orm import sessionmaker
 
-from pdp_util.util import get_stn_list
-from pdp_util.filters import validate_vars
+from pcds.util import get_stn_list
+from pcds.filters import validate_vars
 from pycds import Variable, Network
 from pydap.handlers.pcic import RawPcicSqlHandler, ClimoPcicSqlHandler
 from pydap.handlers.sql import Engines
 from pydap.model import DatasetType, SequenceType, BaseType
 from pydap.handlers.lib import BaseHandler
 
-from pdp_util.util import get_extension, get_clip_dates
+from pcds.util import get_extension, get_clip_dates
 
 def null_start_response(status, response_headers, exc_info=None):
     return None

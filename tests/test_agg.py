@@ -6,8 +6,8 @@ from zipfile import ZipFile
 
 from webob.request import Request
 
-import pdp_util
-from pdp_util.agg import PcdsZipApp, ziperator, get_pcds_responders, metadata_index_responder, get_all_metadata_index_responders
+import pcds
+from pcds.agg import PcdsZipApp, ziperator, get_pcds_responders, metadata_index_responder, get_all_metadata_index_responders
 import pydap.handlers.pcic
 
 import pytest
@@ -34,7 +34,7 @@ def test_get_all_metadata_index_responders(test_session, monkeypatch):
     # Content is tested elsewhere. Fake it out.
     def fake_metadata_index_responder(sesh, net, climo):
         return []
-    monkeypatch.setattr(pdp_util.agg, 'metadata_index_responder', fake_metadata_index_responder)
+    monkeypatch.setattr(pcds.agg, 'metadata_index_responder', fake_metadata_index_responder)
 
     expected_filenames = set(['ARDA/variables.csv', 'EC_raw/variables.csv', 'FLNRO-WMB/variables.csv'])
     

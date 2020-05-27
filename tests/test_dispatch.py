@@ -1,6 +1,6 @@
 from pkg_resources import resource_filename
 
-from pdp_util.pcds_dispatch import PcdsDispatcher
+from pcds.dispatch import PcdsDispatcher
 from pydap.handlers.pcic import RawPcicSqlHandler, ClimoPcicSqlHandler
 from pycds.util import sql_station_table
 
@@ -18,7 +18,7 @@ def make_common_assertions(resp):
 
 @pytest.fixture(scope="function")
 def the_app(conn_params):
-    kwargs = {'pydap_root': '/tmp/', 'app_root': '/', 'templates': resource_filename('pdp_util', 'templates'), 'ol_path': '', 'conn_params': conn_params}
+    kwargs = {'pydap_root': '/tmp/', 'app_root': '/', 'templates': resource_filename('pcds', 'templates'), 'ol_path': '', 'conn_params': conn_params}
     return PcdsDispatcher(**kwargs)
 
 

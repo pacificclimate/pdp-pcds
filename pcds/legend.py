@@ -3,7 +3,7 @@ from StringIO import StringIO
 import datetime
 from pkg_resources import resource_filename
 
-from pdp_util import session_scope
+from pcds import session_scope
 from pycds import Network
 
 import pytz
@@ -50,7 +50,7 @@ class LegendApp(object):
         else:
             color = 'white'
 
-        resource_file = resource_filename('pdp_util', 'data/alpha.png')
+        resource_file = resource_filename('pcds', 'data/alpha.png')
         alpha = Image.open(resource_file)
         _, _, _, a = alpha.split()
         r, g, b =  Image.new('RGB', alpha.size, color).split()

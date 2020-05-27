@@ -5,7 +5,7 @@ import pytest
 from webob.request import Request
 import json
 
-from pdp_util.counts import CountStationsApp, CountRecordLengthApp
+from pcds.counts import CountStationsApp, CountRecordLengthApp
 
 @pytest.mark.parametrize(('filters', 'expected'), [
     ({'network-name': 'EC_raw'}, 3),

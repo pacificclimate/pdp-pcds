@@ -6,9 +6,9 @@ from sqlalchemy import func
 from dateutil.relativedelta import relativedelta
 
 from pycds import CrmpNetworkGeoserver as cng, History, ObsCountPerMonthHistory, ClimoObsCount
-from pdp_util.util import get_stn_list, get_clip_dates
-from pdp_util.filters import validate_vars
-from pdp_util import session_scope
+from pcds.util import get_stn_list, get_clip_dates
+from pcds.filters import validate_vars
+from pcds import session_scope
 
 
 class CountStationsApp(object):

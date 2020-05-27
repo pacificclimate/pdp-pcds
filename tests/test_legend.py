@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 import pytz
 from webob.request import Request
 
-from pdp_util.legend import LegendApp
+from pcds.legend import LegendApp
 
 def test_can_initialize(conn_params):
     app = LegendApp(conn_params)

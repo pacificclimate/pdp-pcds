@@ -1,4 +1,4 @@
-from pdp_util import get_session
+from pcds import get_session
 
 def test_dsn_saving():
     cp = {'database': 'crmp', 'user': 'hiebert', 'host': 'monsoon.pcic'}

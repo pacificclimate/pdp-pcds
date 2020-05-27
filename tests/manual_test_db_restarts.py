@@ -20,7 +20,7 @@ import pytest
 from sqlalchemy import exc, event
 from sqlalchemy.pool import Pool
 
-from pdp_util import get_session
+from pcds import get_session
 
 # These tests are specific to postgresql
 @pytest.fixture
@@ -30,7 +30,7 @@ def test_dsn():
 @contextmanager
 def session_scope(dsn):
     '''Provide a transactional scope around a series of operations. But, for the purposes of testing,
-       does not re-raise exceptions (unlike pdp_util.session_scope
+       does not re-raise exceptions (unlike pcds.session_scope
     '''
     factory = get_session(dsn)
     session = factory()

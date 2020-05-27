@@ -4,7 +4,7 @@ from genshi.template import TemplateLoader
 from sqlalchemy import or_, not_
 
 import pydap.lib
-from pdp_util import session_scope
+from pcds import session_scope
 from pycds import Network, Variable, VarsPerHistory, Station, History
 
 class PcdsIndex(object):

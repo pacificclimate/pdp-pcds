@@ -5,7 +5,7 @@ from webob.request import Request
 from bs4 import BeautifulSoup
 
 
-from pdp_util.pcds_index import PcdsIsClimoIndex, PcdsNetworkIndex, PcdsStationIndex
+from pcds.index import PcdsIsClimoIndex, PcdsNetworkIndex, PcdsStationIndex
 from pycds import *
 
 def make_common_assertions(resp):
@@ -15,7 +15,7 @@ def make_common_assertions(resp):
     print resp.body
 
 def test_climo_index(conn_params, test_session):
-    app = PcdsIsClimoIndex(app_root='/', templates=resource_filename('pdp_util', 'templates'), conn_params=conn_params) #FIXME: template path is fragile
+    app = PcdsIsClimoIndex(app_root='/', templates=resource_filename('pcds', 'templates'), conn_params=conn_params) #FIXME: template path is fragile
 
     assert app.get_elements(test_session) == (
         ('climo', 'Climatological calculations'),
@@ -30,7 +30,7 @@ def test_climo_index(conn_params, test_session):
     assert "raw/" in resp.body
     
 def test_network_index(conn_params, test_session):
-    app = PcdsNetworkIndex(app_root='/', templates=resource_filename('pdp_util', 'templates'), conn_params=conn_params, is_climo=False) #FIXME: template path is fragile
+    app = PcdsNetworkIndex(app_root='/', templates=resource_filename('pcds', 'templates'), conn_params=conn_params, is_climo=False) #FIXME: template path is fragile
 
     assert set(app.get_elements(test_session)) == {
         ('AGRI', 'BC Ministry of Agriculture'),
@@ -54,7 +54,7 @@ def test_network_index(conn_params, test_session):
 
 def test_station_index(conn_params, test_session):
 
-    app = PcdsStationIndex(app_root='/', templates=resource_filename('pdp_util', 'templates'), conn_params=conn_params, is_climo=False, network='AGRI') #FIXME: template path is fragile
+    app = PcdsStationIndex(app_root='/', templates=resource_filename('pcds', 'templates'), conn_params=conn_params, is_climo=False, network='AGRI') #FIXME: template path is fragile
 
     assert app.get_elements(test_session) == [('de107', 'Deep Creek')]
 
@@ -73,7 +73,7 @@ def test_station_index(conn_params, test_session):
 
 def test_station_index_for_climatologies(conn_params, test_session):
 
-    app = PcdsStationIndex(app_root='/', templates=resource_filename('pdp_util', 'templates'), conn_params=conn_params, is_climo=True, network='MoTIe')
+    app = PcdsStationIndex(app_root='/', templates=resource_filename('pcds', 'templates'), conn_params=conn_params, is_climo=True, network='MoTIe')
 
     assert app.get_elements(test_session) == [('34129', 'London Ridge High')]
 

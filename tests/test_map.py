@@ -4,12 +4,12 @@ from pkg_resources import resource_filename
 import pytest
 from bs4 import BeautifulSoup
 
-from pdp_util.map import MapApp
+from pcds.map import MapApp
 
 kwargs = {'app_root': '',
           'js_files': [],
           'css_files': [],
-          'templates': resource_filename('pdp_util', 'templates'),
+          'templates': resource_filename('pcds', 'templates'),
           'version': '2.0',
           'title': 'My test MapApp',
     }

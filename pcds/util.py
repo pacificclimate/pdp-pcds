@@ -2,7 +2,7 @@ from datetime import datetime
 
 from webob.request import Request
 
-from pdp_util.filters import form_filters
+from pcds.filters import form_filters
 from pydap.responses.lib import load_responses
 from pycds import CrmpNetworkGeoserver as cng
 

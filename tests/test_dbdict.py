@@ -1,5 +1,5 @@
 import pytest
-from pdp_util.dbdict import DbDict
+from pcds.dbdict import DbDict
 
 def test_multiform_key_overwrite():
     d = DbDict()

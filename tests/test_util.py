@@ -2,7 +2,7 @@ from urllib import urlencode
 from datetime import datetime
 
 from pycds import CrmpNetworkGeoserver as cng
-from pdp_util.util import get_stn_list, get_clip_dates, get_extension
+from pcds.util import get_stn_list, get_clip_dates, get_extension
 
 import pytest
 from sqlalchemy import text

@@ -8,7 +8,7 @@ from sqlalchemy import create_engine, exc, event
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import Pool
 
-from pdp_util.dbdict import DbDict, dict_to_dsn
+from pcds.dbdict import DbDict, dict_to_dsn
 
 # module global dictionary of database sessions
 DBPOOL = DbDict()

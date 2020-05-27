@@ -14,14 +14,14 @@ class PyTest(TestCommand):
         errno = pytest.main(self.test_args)
         sys.exit(errno)                                                                        
 
-__version__ = (1, 1, 0)
+__version__ = (2, 0, 0)
 
 setup(
-    name="pdp_util",
-    package_dir = {'pdp_util': 'pdp_util'},
+    name="pcds",
+    package_dir = {'pcds': 'pcds'},
     description="A package supplying numerous apps for running PCIC's data server",
     keywords="sql database opendap dods dap data science climate oceanography meteorology",
-    packages=['pdp_util'],
+    packages=['pcds'],
     version='.'.join(str(d) for d in __version__),
     url="http://www.pacificclimate.org/",
     author="James Hiebert",
@@ -34,7 +34,6 @@ setup(
                       'pycds >=0.0.20',
                       'numpy',
                       'python-dateutil',
-                      # raster portal stuff
                       'pydap_pdp >=3.2.1',
                       'pydap.handlers.pcic >=0.0.3',
                       ],
@@ -45,7 +44,7 @@ setup(
                   ],
     cmdclass = {'test': PyTest},
     zip_safe=True,
-    package_data={'pdp_util': ['data/alpha.png',
+    package_data={'pcds': ['data/alpha.png',
                                'data/*.css',
                                'templates/*.html']},
 
