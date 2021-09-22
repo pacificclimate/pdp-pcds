@@ -87,9 +87,9 @@ class PcdsIsClimoIndex(PcdsIndex):
            :param long_name: Second column header (usually a longer description)
            :type long_name: str
         '''
-        defaults = {'title': u'PCDS Data',
-                    'short_name': u'Data type',
-                    'long_name': u'Data type decription'}
+        defaults = {'title': 'PCDS Data',
+                    'short_name': 'Data type',
+                    'long_name': 'Data type decription'}
         kwargs = dict(list(defaults.items()) + list(kwargs.items()))
         PcdsIndex.__init__(self, **kwargs)
 

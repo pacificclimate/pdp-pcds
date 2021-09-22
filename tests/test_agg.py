@@ -67,7 +67,7 @@ def test_ziperator():
         for line in files[file]:
             yield line
 
-    responders = [ (filename, content_generator(filename)) for filename in files.keys() ]
+    responders = [ (filename, content_generator(filename)) for filename in list(files.keys()) ]
     result = ziperator(responders)
 
     # Check that we actually got an iterator
@@ -83,7 +83,7 @@ def test_ziperator():
             assert z.testzip() is None
             # Check that the names list
             assert set(z.namelist()) == set(files.keys())
-            for filename, content in files.items():
+            for filename, content in list(files.items()):
                 # Check the content of each archive member
                 with z.open(filename) as x:
                     assert x.read() == ''.join(content)

@@ -19,7 +19,7 @@ class MapApp(object):
                              'templates',
                              'version',
                              'title'])
-        if not required_args.issubset(kwargs.keys()):
+        if not required_args.issubset(list(kwargs.keys())):
                 raise ValueError("Some required arguments are missing {}".format(required_args - set(kwargs.keys())))
         self.options = kwargs
 

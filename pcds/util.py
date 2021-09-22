@@ -27,7 +27,7 @@ def get_extension(environ):
     '''Extract the data format extension from request parameters and check that they are supported'''
     req = Request(environ)
     form = req.params
-    if form.has_key('data-format') and form['data-format'] in load_responses().keys():
+    if 'data-format' in form and form['data-format'] in list(load_responses().keys()):
         return form['data-format']
     else:
         return None
@@ -40,11 +40,11 @@ def get_clip_dates(environ):
     '''
     req = Request(environ)
     form = req.params
-    if not form.has_key('cliptodate'):
+    if 'cliptodate' not in form:
         return (None, None)
     else:
-        sdate = form['from-date'] if form.has_key('from-date') else ''
-        edate = form['to-date'] if form.has_key('to-date') else ''
+        sdate = form['from-date'] if 'from-date' in form else ''
+        edate = form['to-date'] if 'to-date' in form else ''
         sdate = form_filters['from-date'].validate(sdate)
         edate = form_filters['to-date'].validate(edate)
         return (datetime.strptime(sdate, '%Y/%m/%d') if sdate else None, datetime.strptime(edate, '%Y/%m/%d') if edate else None)

@@ -189,7 +189,7 @@ def validate_vars(environ):
     form = req.params
 
     valid_filters = []
-    for k, v in form.items():
+    for k, v in list(form.items()):
         try:
             filt = form_filters[k](v)
             if filt is not None:

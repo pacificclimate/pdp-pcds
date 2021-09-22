@@ -54,7 +54,7 @@ def test_restart_fails(test_dsn):
         sesh.execute('select 1')
     
     print("\nManually restart the server in another terminal")
-    raw_input()
+    eval(input())
 
     # NOTE HERE that the first operation on the session raises an exception...
     with pytest.raises(exc.OperationalError) as excinfo:
@@ -64,7 +64,7 @@ def test_restart_fails(test_dsn):
     assert "terminating connection due to administrator command" in excinfo.value.message
 
     # ... but subsequent operations do not
-    for _ in xrange(10):
+    for _ in range(10):
         with session_scope(test_dsn) as sesh:
             sesh.execute('select 1')
 
@@ -91,9 +91,9 @@ def test_restart_is_handled(test_dsn):
             sesh.execute('select 1')
 
     print("\nManually restart the server in another terminal")
-    raw_input()
+    eval(input())
 
-    for _ in xrange(10):
+    for _ in range(10):
         with session_scope(test_dsn) as sesh:
             sesh.execute('select 1')
 
